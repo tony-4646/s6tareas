@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tony's Web</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="secciones">
+    <div class="perfil">
+        <h1>Información y más</h1>
+        <ul>
+            <li>
+                <h4>Nombres: <em>Anthony Gabriel</em></h4>
+            </li>
+            <li>
+                <h4>Apellidos: <em>Meneses Barrionuevo</em></h4>
+            </li>
+            <li>
+                <h4>Edad: <em>20 años</em></h4>
+            </li>
+            <li>
+                <h4>Carrera: <em>Ing.Software</em></h4>
+            </li>
+            <li>
+                <h4>Semestre: <em>6to</em></h4>
+            </li>
+        </ul>
+            <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Escudo_Uniandes.JPG" alt="Uniandes logo">
+    </div>
+    </div>
+
+
+    <div>
+        <h1>Calculadora 1.0</h1>
+        <h4>
+            <p><label for="cantidad1">Cantidad 1:</label></p>
+        </h4>
+        <input type="number" id="cantidad1" name="cantidad1" max="99999" oninput="if(this.value.length > 5) { this.value = this.value.slice(0, 5); }">
+
+        <p>
+        <h4><label for="cantidad2">Cantidad 2:</label></h4>
+        </p>
+        <p><input type="number" id="cantidad2" name="cantidad2" max="99999" oninput="if(this.value.length > 5) { this.value = this.value.slice(0, 5); }"></p>
+
+        <button onclick="operaciones.suma()"><h5>sumar</h5></button>
+        <button onclick="operaciones.resta()"><h5>restar</h5></button>
+        <button onclick="operaciones.multiplicacion()"><h5>multiplicar</h5></button>
+        <button onclick="operaciones.division()"><h5>dividir</h5></button>
+
+        <p>Resultado: <span id="resultado">0</span></p>
+
+        <script src="operaciones.js"></script>
+    </div>
+    </section>
+</body>
+
+</html>
