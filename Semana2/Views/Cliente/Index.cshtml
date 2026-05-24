@@ -1,0 +1,59 @@
+@model IEnumerable<Semana2.Models.ClienteModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cedula_ruc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cedula_ruc)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Telefono)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
