@@ -1,0 +1,89 @@
+@model IEnumerable<Semana3.Models.ClientesModel>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado_civil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cedula_ruc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.provincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pais)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.nacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.estado_civil)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.cedula_ruc)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.pais)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
