@@ -1,0 +1,47 @@
+@model ExamenReservacionesP1.Models.ClientesModel
+
+@{
+    ViewData["Title"] = "Nuevo";
+}
+
+<h1>Nuevo Cliente</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Cli_Nombre" class="control-label">Nombre</label>
+                <input asp-for="Cli_Nombre" class="form-control" />
+                <span asp-validation-for="Cli_Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cli_Apellido" class="control-label">Apellido</label>
+                <input asp-for="Cli_Apellido" class="form-control" />
+                <span asp-validation-for="Cli_Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cli_Email" class="control-label">Correo</label>
+                <input asp-for="Cli_Email" class="form-control" />
+                <span asp-validation-for="Cli_Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cli_Telefono" class="control-label">Teléfono</label>
+                <input asp-for="Cli_Telefono" class="form-control" type="tel" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                <span asp-validation-for="Cli_Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>

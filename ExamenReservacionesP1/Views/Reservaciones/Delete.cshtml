@@ -1,0 +1,41 @@
+@model ExamenReservacionesP1.Models.ReservacionesModel
+
+@{
+    ViewData["Title"] = "Cancelar";
+}
+
+<h1>Cancelar reservación</h1>
+
+<h3>¿Estás seguro de cancelar esta reservación?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de reserva:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha_Reserva)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Cliente:
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Cliente != null ? Model.Cliente.Cli_NombreCompleto : "Sin Cliente asignado")
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Evento a asistir:
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Evento != null ? Model.Evento.Eve_Nombre : "Sin Evento asignado")
+        </dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Num_Reserva" />
+        <input type="submit" value="Cancelar Reservación" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver</a>
+    </form>
+</div>

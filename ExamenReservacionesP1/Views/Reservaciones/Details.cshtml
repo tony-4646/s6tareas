@@ -1,0 +1,50 @@
+@model ExamenReservacionesP1.Models.ReservacionesModel
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha de reserva:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha_Reserva)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Estado: 
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Estado ? "Activo" : "Cancelado")
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Cliente: 
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Cliente != null ? Model.Cliente.Cli_NombreCompleto : "Sin Cliente asignado")
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Evento: 
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Evento != null ? Model.Evento.Eve_Nombre : "Sin Evento asignado")
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Descripción: 
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.Evento != null ? Model.Evento.Eve_Descripcion : "Sin Descripcion asignada")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Volver</a>
+</div>

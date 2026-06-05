@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|d:\\xampp\\htdocs\\s6tareas\\examenreservacionesp1\\views\\clientes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|solutionrelative:views\\clientes\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|d:\\xampp\\htdocs\\s6tareas\\examenreservacionesp1\\views\\eventos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|solutionrelative:views\\eventos\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|d:\\xampp\\htdocs\\s6tareas\\examenreservacionesp1\\views\\eventos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|solutionrelative:views\\eventos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|d:\\xampp\\htdocs\\s6tareas\\examenreservacionesp1\\views\\clientes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C969F3DC-6C68-0AD5-B1FE-FAE389F2C55C}|ExamenReservacionesP1.csproj|solutionrelative:views\\clientes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Clientes\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Clientes\\Details.cshtml",
+              "ToolTip": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Clientes\\Details.cshtml*",
+              "RelativeToolTip": "Views\\Clientes\\Details.cshtml*",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T23:06:33.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Eventos\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Eventos\\Delete.cshtml",
+              "ToolTip": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Eventos\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Eventos\\Delete.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T23:05:10.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Eventos\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Eventos\\Details.cshtml",
+              "ToolTip": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Eventos\\Details.cshtml",
+              "RelativeToolTip": "Views\\Eventos\\Details.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T23:04:58.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Clientes\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Clientes\\Edit.cshtml",
+              "ToolTip": "D:\\Xampp\\htdocs\\s6tareas\\ExamenReservacionesP1\\Views\\Clientes\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Clientes\\Edit.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T23:04:34.983Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

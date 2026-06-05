@@ -1,0 +1,53 @@
+@model IEnumerable<ExamenReservacionesP1.Models.EventosModel>
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<h1>Eventos</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Ubicación
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Eve_Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Eve_Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Eve_Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Eve_Ubicacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-evento_id="@item.Evento_Id">Editar</a> |
+                    <a asp-action="Details" asp-route-evento_id="@item.Evento_Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-evento_id="@item.Evento_Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

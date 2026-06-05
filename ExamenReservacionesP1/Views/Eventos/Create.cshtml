@@ -1,0 +1,47 @@
+@model ExamenReservacionesP1.Models.EventosModel
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Eve_Nombre" class="control-label">Nombre</label>
+                <input asp-for="Eve_Nombre" class="form-control" />
+                <span asp-validation-for="Eve_Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Eve_Descripcion" class="control-label">Descripción</label>
+                <input asp-for="Eve_Descripcion" class="form-control" />
+                <span asp-validation-for="Eve_Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Eve_Fecha" class="control-label">Fecha</label>
+                <input asp-for="Eve_Fecha" class="form-control" />
+                <span asp-validation-for="Eve_Fecha" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Eve_Ubicacion" class="control-label">Ubicación</label>
+                <input asp-for="Eve_Ubicacion" class="form-control" />
+                <span asp-validation-for="Eve_Ubicacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>

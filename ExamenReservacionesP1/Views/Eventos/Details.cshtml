@@ -1,0 +1,44 @@
+@model ExamenReservacionesP1.Models.EventosModel
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eve_Nombre)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Descripción:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eve_Descripcion)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Fecha:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eve_Fecha)
+        </dd>
+    </dl>
+        <dt class = "col-sm-2">
+            Ubicación:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eve_Ubicacion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-evento_id="@Model?.Evento_Id">Editar</a> |
+    <a asp-action="Index">Volver</a>
+</div>

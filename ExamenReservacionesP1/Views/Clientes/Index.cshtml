@@ -1,0 +1,53 @@
+@model IEnumerable<ExamenReservacionesP1.Models.ClientesModel>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Nuevo cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Teléfono
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Cli_Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cli_Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cli_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cli_Telefono)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-cliente_id="@item.Cliente_Id">Editar</a> |
+                    <a asp-action="Details" asp-route-cliente_id="@item.Cliente_Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-cliente_id="@item.Cliente_Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+@model IEnumerable<ExamenReservacionesP1.Models.ReservacionesModel>
+
+@{
+    ViewData["Title"] = "Reservaciones";
+}
+
+<h1>Reservaciones</h1>
+
+<p>
+    <a asp-action="Create">Nueva reservación</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha de reserva
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Evento
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Fecha_Reserva)
+            </td>
+            <td>
+                @(item.Estado ? "Activo" : "Cancelado")
+            </td>
+            <td>
+                    @(item.Cliente != null ? $"{item.Cliente.Cli_Nombre} {item.Cliente.Cli_Apellido}" : "Sin cliente")
+            </td>
+            <td>
+                    @(item.Evento != null ? item.Evento.Eve_Nombre : "Sin evento")
+            </td>
+
+            <td>
+                    <a asp-action="Details" asp-route-num_reserva="@item.Num_Reserva">Detalles</a> |
+                    <a asp-action="@(item.Estado ? "Delete" : null)"
+                       asp-route-num_reserva="@(item.Estado ? item.Num_Reserva : null)"
+                       class="@(item.Estado ? "" : "disabled text-muted")"
+                       style="@(item.Estado ? "" : "pointer-events: none;")">
+                        Cancelar
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
