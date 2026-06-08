@@ -1,0 +1,54 @@
+@model Semana4.Models.Paquete
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Paquete</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Paq_Id" />
+            <div class="form-group">
+                <label asp-for="Paq_Contenido" class="control-label"></label>
+                <input asp-for="Paq_Contenido" class="form-control" />
+                <span asp-validation-for="Paq_Contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paq_Tamano" class="control-label"></label>
+                <input asp-for="Paq_Tamano" class="form-control" />
+                <span asp-validation-for="Paq_Tamano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paq_Precio" class="control-label"></label>
+                <input asp-for="Paq_Precio" class="form-control" />
+                <span asp-validation-for="Paq_Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paq_Almacen" class="control-label"></label>
+                <input asp-for="Paq_Almacen" class="form-control" />
+                <span asp-validation-for="Paq_Almacen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Paq_Registro" class="control-label"></label>
+                <input asp-for="Paq_Registro" class="form-control" />
+                <span asp-validation-for="Paq_Registro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

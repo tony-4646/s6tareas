@@ -1,0 +1,62 @@
+@model IEnumerable<Semana4.Models.Entrega>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Paquete No.
+            </th>
+            <th>
+                Contenido
+            </th>
+            <th>
+                Fecha a Entregar
+            </th>
+            <th>
+                Observaciones
+            </th>
+            <th>
+                Registro
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @(item.Cliente != null ? item.Cliente.Cli_Nombre : "Sin Cliente")
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Id)
+            </td>
+            <td>
+                @(item.Paquete != null ? item.Paquete.Paq_Contenido : "Sin Paquete")
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ent_FechaAEntregar)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ent_Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Ent_Registro)
+            </td>
+            <td>
+                    <a asp-action="Delete" asp-route-ent_id="@item.Ent_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

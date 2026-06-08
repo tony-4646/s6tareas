@@ -1,0 +1,59 @@
+@model IEnumerable<Semana4.Models.Paquete>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Paq_Contenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paq_Tamano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paq_Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paq_Almacen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paq_Registro)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Contenido)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Tamano)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Almacen)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paq_Registro)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-paq_id="@item.Paq_Id">Edit</a> |
+                    <a asp-action="Details" asp-route-paq_id="@item.Paq_Id">Details</a> |
+                    <a asp-action="Delete" asp-route-paq_id="@item.Paq_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

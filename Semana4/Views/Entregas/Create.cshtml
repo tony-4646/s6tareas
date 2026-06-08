@@ -1,0 +1,52 @@
+@model Semana4.Models.Entrega
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Entrega</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Cli_Id" class="control-label">Cliente</label>
+                <select asp-for="Cli_Id" class="form-control" asp-items="ViewBag.Cli_Id">
+                    <option value="">-- Seleccione un cliente --</option>
+                </select>
+                <span asp-validation-for="Cli_Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Paq_Id" class="control-label">No. Paquete</label>
+                <select asp-for="Paq_Id" id="SelectPaquete" class="form-control" asp-items="ViewBag.Paq_Id">
+                    <option value="">-- Seleccione un paquete --</option>
+                </select>
+                <span asp-validation-for="Paq_Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ent_FechaAEntregar" class="control-label"></label>
+                <input asp-for="Ent_FechaAEntregar" class="form-control" />
+                <span asp-validation-for="Ent_FechaAEntregar" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ent_Observaciones" class="control-label"></label>
+                <input asp-for="Ent_Observaciones" class="form-control" />
+                <span asp-validation-for="Ent_Observaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
