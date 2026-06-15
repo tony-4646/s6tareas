@@ -1,0 +1,53 @@
+<div class="container my-5">
+  <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+    <div class="card-header bg-warning text-dark">
+      <h5 class="mb-0 fw-bold">Editar Pregunta</h5>
+    </div>
+    <div class="card-body p-4">
+
+      <form [formGroup]="formularioEditar" (ngSubmit)="guardarCambios()">
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Enunciado</label>
+          <input type="text" class="form-control" formControlName="enunciado" 
+                 [ngClass]="{'is-invalid': formularioEditar.get('enunciado')?.touched && formularioEditar.get('enunciado')?.invalid}">
+          <div class="invalid-feedback">El enunciado es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Descripción</label>
+          <textarea class="form-control" rows="3" formControlName="descripcion"
+                    [ngClass]="{'is-invalid': formularioEditar.get('descripcion')?.touched && formularioEditar.get('descripcion')?.invalid}"></textarea>
+          <div class="invalid-feedback">La descripción es obligatoria.</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold">Orden de Visualización</label>
+            <input type="number" class="form-control" formControlName="orden"
+                   [ngClass]="{'is-invalid': formularioEditar.get('orden')?.touched && formularioEditar.get('orden')?.invalid}">
+            <div class="invalid-feedback">El orden debe ser mayor a 0.</div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold">Peso / Puntaje</label>
+            <input type="number" class="form-control" formControlName="peso"
+                   [ngClass]="{'is-invalid': formularioEditar.get('peso')?.touched && formularioEditar.get('peso')?.invalid}">
+            <div class="invalid-feedback">El peso debe ser mayor a 0.</div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button type="button" class="btn btn-secondary" routerLink="/">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-warning fw-bold" [disabled]="formularioEditar.invalid">
+            Guardar Cambios
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container my-5">
+  <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+    <div class="card-header bg-success text-white">
+      <h5 class="mb-0 fw-bold">Añadir Nueva Pregunta</h5>
+    </div>
+    <div class="card-body p-4">
+
+      <form [formGroup]="formularioInsertar" (ngSubmit)="crearPregunta()">
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Enunciado de la Pregunta</label>
+          <input type="text" class="form-control" formControlName="enunciado" placeholder="Ej. ¿Qué es un patron de diseño?"
+                 [ngClass]="{'is-invalid': formularioInsertar.get('enunciado')?.touched && formularioInsertar.get('enunciado')?.invalid}">
+          <div class="invalid-feedback">El enunciado es obligatorio y debe tener al menos 5 caracteres.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Descripción / Notas adicionales</label>
+          <textarea class="form-control" rows="3" formControlName="descripcion" placeholder="Detalles de la pregunta..."
+                    [ngClass]="{'is-invalid': formularioInsertar.get('descripcion')?.touched && formularioInsertar.get('descripcion')?.invalid}"></textarea>
+          <div class="invalid-feedback">La descripción es obligatoria.</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold">Orden de Aparición</label>
+            <input type="number" class="form-control" formControlName="orden"
+                   [ngClass]="{'is-invalid': formularioInsertar.get('orden')?.touched && formularioInsertar.get('orden')?.invalid}">
+            <div class="invalid-feedback">El orden debe ser un número mayor a 0.</div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold">Peso / Valor</label>
+            <input type="number" class="form-control" formControlName="peso"
+                   [ngClass]="{'is-invalid': formularioInsertar.get('peso')?.touched && formularioInsertar.get('peso')?.invalid}">
+            <div class="invalid-feedback">El peso asignado debe ser mayor a 0.</div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button type="button" class="btn btn-secondary" routerLink="/">
+            Regresar al Listado
+          </button>
+          <button type="submit" class="btn btn-success fw-bold" [disabled]="formularioInsertar.invalid">
+            Guardar Pregunta
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

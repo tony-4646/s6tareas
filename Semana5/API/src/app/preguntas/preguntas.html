@@ -1,0 +1,63 @@
+<div class="container my-5">
+  <div class="card shadow-sm">
+    <div
+      class="card-header bg-primary text-white d-flex justify-content-between align-items-center"
+    >
+      <h5 class="mb-0">Listado de Preguntas</h5>
+      <button class="btn btn-light btn-sm" routerLink="/insertar">+ Nueva Pregunta</button>
+    </div>
+
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        @if (lista && lista.length > 0) {
+          <table class="table table-hover table-striped mb-0 align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Orden</th>
+                <th scope="col">Enunciado</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Peso</th>
+                <th scope="col" class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (pregunta of lista; track pregunta.id) {
+                <tr>
+                  <th scope="row" class="text-muted">{{ pregunta.id }}</th>
+                  <td>
+                    <span class="badge bg-secondary">{{ pregunta.orden }}</span>
+                  </td>
+                  <td class="fw-bold">{{ pregunta.enunciado }}</td>
+                  <td class="text-secondary">{{ pregunta.descripcion }}</td>
+                  <td>
+                    <span class="badge bg-info text-dark">{{ pregunta.peso }}</span>
+                  </td>
+
+                  <td class="text-center">
+                    <div class="btn-group" role="group">
+                      <a class="btn btn-outline-warning btn-sm" title="Editar" href="javascript:void(0)" [routerLink]="['/editar']"
+                        [state]="{ data: pregunta }">
+                        Editar
+                      </a>
+
+                      <a class="btn btn-outline-danger btn-sm" title="Eliminar" href="javascript:void(0)" [routerLink]="['/eliminar']"
+                        [state]="{ data: pregunta }">
+                        Eliminar
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+
+        } @else {
+          <div class="p-5 text-center text-muted">
+            <p class="mb-0">No hay Preguntas disponibles en este momento.</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
