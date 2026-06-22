@@ -9,4 +9,5 @@ REPOSITORIO PARA APLICACIONES WEB, leer deberes añadidos:
 emplear npm install para hacerlo funcionar,
 no incluye código del API (solo frontend),
 hecho a partir de la actividad de preguntas y respuestas en clase
-
+- Añadido deber semana 6, (21-06-2026): Importante leer:
+ver "appsettings.json" para ajustar el servidor de tu dispositivo
