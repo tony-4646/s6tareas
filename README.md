@@ -10,6 +10,6 @@ emplear npm install para hacerlo funcionar,
 no incluye código del API (solo frontend),
 hecho a partir de la actividad de preguntas y respuestas en clase
 - Añadido deber semana 6, (21-06-2026): Importante leer:
-ver "appsettings.json" para ajustar el servidor de tu dispositivo, usar update-database para crear la base de datos o emplear el archivo bak adjunto (para sql server), si no funciona, usa remove-migration y usa "add-migration primera", vuelve a usar el primer comando; en el frontend emplea "npm install". Recuerda añadir en la base de datos manualmente al usuario con lo siguiente si no usas el bak (requerido ya que hasheamos la contraseña:
+ver "appsettings.json" para ajustar el servidor de tu dispositivo, usar update-database para crear la base de datos o emplear el archivo bak adjunto (para sql server), si no funciona, usa remove-migration y usa "add-migration primera", vuelve a usar el primer comando; en el frontend emplea "npm install". Recuerda añadir en la base de datos manualmente al usuario con lo siguiente si no usas el bak (requerido ya que hasheamos la contraseña):
 INSERT INTO Usuarios (Nombre_Usuario, Contrasena) VALUES ('usuario', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', '12345'), 2)). Con ello, activa tanto la api como el frontend para que funcione.
  
