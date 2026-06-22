@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Xampp\\htdocs\\s6tareas\\Semana6\\Backend\\API_LogIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{361ADE74-58EA-40F3-948E-823B6420A4AF}|API_LogIn.csproj|d:\\xampp\\htdocs\\s6tareas\\semana6\\backend\\api_login\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{361ADE74-58EA-40F3-948E-823B6420A4AF}|API_LogIn.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Xampp\\htdocs\\s6tareas\\Semana6\\Backend\\API_LogIn\\Controllers\\UsuariosApiController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\UsuariosApiController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{361ADE74-58EA-40F3-948E-823B6420A4AF}|API_LogIn.csproj|d:\\xampp\\htdocs\\s6tareas\\semana6\\backend\\api_login\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{361ADE74-58EA-40F3-948E-823B6420A4AF}|API_LogIn.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{361ADE74-58EA-40F3-948E-823B6420A4AF}|API_LogIn.csproj|d:\\xampp\\htdocs\\s6tareas\\semana6\\backend\\api_login\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\Semana6\\Backend\\API_LogIn\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -39,13 +39,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UsuariosApiController.cs",
               "DocumentMoniker": "D:\\Xampp\\htdocs\\s6tareas\\Semana6\\Backend\\API_LogIn\\Controllers\\UsuariosApiController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuariosApiController.cs",
               "ToolTip": "D:\\Xampp\\htdocs\\s6tareas\\Semana6\\Backend\\API_LogIn\\Controllers\\UsuariosApiController.cs",
               "RelativeToolTip": "Controllers\\UsuariosApiController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwC8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwC8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-21T22:11:01.648Z",
               "EditorCaption": ""
