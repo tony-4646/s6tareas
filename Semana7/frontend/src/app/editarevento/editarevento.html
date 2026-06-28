@@ -1,0 +1,65 @@
+<div class="container mt-5" style="max-width: 600px;">
+  <div class="card shadow-sm border-0 custom-table-container">
+    
+    <div class="p-4 text-white" style="background-color: #0072ff; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+      <h4 class="mb-0 fw-semibold">Editar Evento #{{ eventoId }}</h4>
+    </div>
+
+    <div class="card-body p-4 bg-white">
+      <form [formGroup]="formEvento" (ngSubmit)="actualizarEvento()">
+        
+        <div class="mb-4">
+          <label for="nombre" class="form-label fw-medium text-secondary">Nombre del Evento</label>
+          <input 
+            type="text" 
+            id="nombre" 
+            formControlName="nombre"
+            class="form-control p-3" 
+            [ngClass]="{'is-invalid': esCampoInvalido('nombre')}"
+          />
+          <div class="invalid-feedback" *ngIf="formEvento.get('nombre')?.errors?.['required']">
+            El nombre es necesario para actualizar
+          </div>
+          <div class="invalid-feedback" *ngIf="formEvento.get('nombre')?.errors?.['minlength']">
+            El nombre debe mantener un mínimo de 3 caracteres
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="descripcion" class="form-label fw-medium text-secondary">Descripción</label>
+          <textarea 
+            id="descripcion" 
+            formControlName="descripcion"
+            rows="4"
+            class="form-control p-3" 
+          ></textarea>
+          <div class="invalid-feedback" *ngIf="formEvento.get('descripcion')?.errors?.['required']">
+            Especifique una descripción
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button 
+            type="button" 
+            routerLink="/eventos" 
+            class="btn px-4 py-2 border-0 text-secondary bg-light fw-medium"
+            style="border-radius: 8px;"
+          >
+            Cancelar
+          </button>
+          
+          <button 
+            type="submit" 
+            class="btn px-4 py-2 text-white fw-medium" 
+            style="background-color: #0072ff; border-radius: 8px;"
+            [disabled]="formEvento.invalid"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

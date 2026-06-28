@@ -1,0 +1,81 @@
+/* Contenedor principal con bordes redondeados */
+.custom-table-container {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #eef2f5;
+}
+
+/* Estilos base de la tabla */
+.custom-table {
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+/* Encabezado elegante coordinado con el Header */
+.custom-table thead tr {
+  background-color: #0b111e;
+  color: #ffffff;
+}
+
+.custom-table th {
+  font-weight: 600;
+  padding: 16px 20px;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+}
+
+/* Celdas del cuerpo */
+.custom-table tbody td, 
+.custom-table tbody th {
+  padding: 16px 20px;
+  color: #495057;
+  border-bottom: 1px solid #f1f3f5;
+  transition: background-color 0.2s ease;
+}
+
+/* Efecto hover suave en las filas */
+.custom-table tbody tr:hover td,
+.custom-table tbody tr:hover th {
+  background-color: #f8fafd;
+  color: #111111;
+}
+
+/* Avatares juveniles en texto (Placeholders) */
+.avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #00c6ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.bg-purple { background-color: #7928ca; }
+.bg-blue { background-color: #0072ff; }
+
+/* Badges estilizados (Estilo formal-juvenil) */
+.badge-custom {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
+}
+
+/* Colores suaves para los badges */
+.bg-success-soft {
+  background-color: #e6f7ed !important;
+}
+
+.bg-warning-soft {
+  background-color: #fff9db !important;
+}
+
+.bg-danger-soft {
+  background-color: #ffe3e3 !important;
+}

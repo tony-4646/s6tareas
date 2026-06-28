@@ -1,0 +1,38 @@
+<div class="table-responsive custom-table-container shadow-sm">
+    <div class="d-flex justify-content-between align-items-center p-3 bg-white">
+        <button routerLink="/nuevoevento" class="btn-dark">
+            Nuevo Evento
+        </button>
+
+        <button (click)="exportarPDF()" class="btn-pdf">
+            Exportar PDF
+        </button>
+    </div>
+    <table class="table table-hover custom-table mb-0">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (evento of listaEventos; track evento.id; let i = $index) {
+            <tr>
+                <td>{{ i + 1 }}</td>
+
+                <td>{{ evento.nombre }}</td>
+
+                <td>{{ evento.descripcion }}</td>
+
+                <td>
+
+                    <button [routerLink]="['/editarevento', evento.id]" class="btn btn-sm btn-primary">Editar</button>
+                    <button (click)="eliminarEvento(evento.id)" class="btn btn-sm btn-danger">Eliminar</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
