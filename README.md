@@ -13,3 +13,4 @@ hecho a partir de la actividad de preguntas y respuestas en clase
 ver "appsettings.json" para ajustar el servidor de tu dispositivo, usar update-database para crear la base de datos o emplear el archivo bak adjunto (para sql server), si no funciona, usa remove-migration y usa "add-migration primera", vuelve a usar el primer comando; en el frontend emplea "npm install". Recuerda añadir en la base de datos manualmente al usuario con lo siguiente si no usas el bak (requerido ya que hasheamos la contraseña):
 INSERT INTO Usuarios (Nombre_Usuario, Contrasena) VALUES ('usuario', CONVERT(VARCHAR(64), HASHBYTES('SHA2_256', '12345'), 2)). Con ello, activa tanto la api como el frontend para que funcione.
  - Añadido deber semana 7, (21-06-2026): Importante leer: Asegurate de ajustar app.module.ts del backend a tu base de datos y gestor
+ - Añadido documento del PI, (21-06-2026)
