@@ -1,0 +1,170 @@
+<div class="container">
+    <div class="header-actions">
+        <h2>🧾 Gestión de Órdenes</h2>
+        <button class="btn btn-primary" (click)="abrirNuevaOrden()" [disabled]="mostrarFormulario">+ Crear Nueva
+            Orden</button>
+    </div>
+    <hr />
+
+    <!--Formulario-->
+
+    @if (mostrarFormulario) {
+    <div class="card-formulario">
+        <h3>🛒 Registrar Nueva Orden</h3>
+        <div class="orden-layout">
+            <div class="orden-seleccion">
+                <div class="form-group">
+                    <label>Seleccionar Cliente:</label>
+                    <select class="form-control" [(ngModel)]="clienteSeleccionado">
+                        <option [ngValue]="null" disabled>-- Elige un cliente --</option>
+                        @for (cliente of listaClientes; track cliente.cliente_id) {
+                        <option [value]="cliente.cliente_id">
+                            {{ cliente.c_nombre }} {{ cliente.c_apellido }}
+                        </option>
+                        }
+                    </select>
+                </div>
+
+                <div class="catalogo-menus mt-3">
+                    <h4>Platos Disponibles</h4>
+                    <div class="grid-menus">
+                        @for (menu of listaMenus; track menu.menu_id) {
+                        <div class="menu-card">
+                            <span>{{ menu.m_nombre }} - ${{ menu.m_precio }}</span>
+                            <button class="btn btn-sm btn-outline-success"
+                                (click)="agregarAlCarrito(menu)">Agregar</button>
+                        </div>
+                        } @empty {
+                        <p>No hay menús disponibles.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!--Carrito-->
+
+            <div class="orden-resumen">
+                <h4>Resumen del Pedido</h4>
+                <table class="table-carrito">
+                    <thead>
+                        <tr>
+                            <th>Plato</th>
+                            <th>Cant.</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of articulosCarrito; track item.menu_id; let i = $index) {
+                        <tr>
+                            <td>{{ item.nombre }}</td>
+                            <td>
+                                <input type="number" min="1" [(ngModel)]="item.d_cantidad" (change)="calcularTotal()"
+                                    style="width: 50px;">
+                            </td>
+                            <td>${{ item.m_precio * item.d_cantidad }}</td>
+                            <td><button class="btn-action btn-delete" (click)="removerDelCarrito(i)">❌</button></td>
+                        </tr>
+                        } @empty {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">El carrito está vacío</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <h3 class="text-right mt-2">Total: ${{ totalOrden }}</h3>
+            </div>
+        </div>
+
+        <div class="form-buttons mt-3">
+            <button class="btn btn-success" (click)="guardarOrden()"
+                [disabled]="!clienteSeleccionado || articulosCarrito.length === 0">
+                Confirmar y Guardar Orden
+            </button>
+            <button class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+        </div>
+    </div>
+    }
+
+    <!--Tabla de órdenes-->
+    @if (!mostrarFormulario) {
+    <div class="table-tools">
+        <div class="tool-show">
+            <label>Mostrar </label>
+            <select [(ngModel)]="registrosPorPagina" (change)="resetearPaginacion()">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+            </select>
+            <label> registros</label>
+        </div>
+
+        <div class="tool-search">
+            <input type="text" [(ngModel)]="textoBusqueda" (input)="resetearPaginacion()"
+                placeholder="🔍 Buscar por # orden, cliente o estado...">
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th># Orden</th>
+                    <th>Cliente</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (orden of ordenesPaginados; track orden.orden_id) {
+                <tr>
+                    <td><strong>{{ orden.orden_id }}</strong></td>
+                    <td>{{ orden.c_nombre }} {{ orden.c_apellido }}</td>
+                    <td>${{ orden.o_total }}</td>
+                    <td>
+                        <span class="badge" [ngClass]="{
+                            'badge-pendiente': orden.o_estado === 'pendiente', 
+                            'badge-cocina': orden.o_estado === 'en_cocina',
+                            'badge-listo': orden.o_estado === 'listo',
+                            'badge-completado': orden.o_estado === 'entregado',
+                            'badge-cancelado': orden.o_estado === 'cancelado'
+                        }">
+                            {{ orden.o_estado | uppercase }}
+                        </span>
+                    </td>
+                    <td>
+                        @if (orden.o_estado === 'pendiente') {
+                        <button class="btn btn-sm btn-warning"
+                            (click)="cambiarEstado(orden.orden_id, 'en_cocina')">🧑‍🍳 Cocinar</button>
+                        }
+                        @if (orden.o_estado === 'en_cocina') {
+                        <button class="btn btn-sm btn-info" (click)="cambiarEstado(orden.orden_id, 'listo')">🛎️
+                            Terminar Plato</button>
+                        }
+                        @if (orden.o_estado === 'listo') {
+                        <button class="btn btn-sm btn-success" (click)="cambiarEstado(orden.orden_id, 'entregado')">✅
+                            Entregar pedido</button>
+                        }
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="5" class="text-center">No se encontraron órdenes que coincidan con la búsqueda.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination-controls">
+            <span>Mostrando página {{ paginaActual }} de {{ totalPaginas }}</span>
+            <div class="pagination-buttons">
+                <button class="btn-page" (click)="paginaAnterior()" [disabled]="paginaActual === 1">◀ Anterior</button>
+                <button class="btn-page" (click)="paginaSiguiente()"
+                    [disabled]="paginaActual === totalPaginas">Siguiente ▶</button>
+            </div>
+        </div>
+    </div>
+    }
+</div>

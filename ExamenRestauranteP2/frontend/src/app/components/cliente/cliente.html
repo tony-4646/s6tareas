@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="header-actions">
+        <h2>👥 Control de Clientes Activos</h2>
+        <button class="btn btn-primary" (click)="abrirFormularioNuevo()">+ Registrar Nuevo Cliente</button>
+    </div>
+
+    <hr />
+
+    <!--Formulario-->
+
+    @if (mostrarFormulario) {
+    <div class="card-formulario">
+        <h3>{{ editando ? '📝 Editar Información del Cliente' : '✨ Registrar Nuevo Cliente' }}</h3>
+        <form (ngSubmit)="guardar($event)" #formCliente="ngForm">
+
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="c_nombre" [(ngModel)]="clienteForm.c_nombre" required minlength="2"
+                    #nombre="ngModel" placeholder="Ej. Juan">
+                @if (nombre.invalid && (nombre.dirty || nombre.touched)) {
+                <small class="text-danger">El nombre es obligatorio y debe tener al menos 2 letras.</small>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="c_apellido" [(ngModel)]="clienteForm.c_apellido" required
+                    minlength="2" #apellido="ngModel" placeholder="Ej. Pérez">
+                <!-- Mensaje de error para el Apellido -->
+                @if (apellido.invalid && (apellido.dirty || apellido.touched)) {
+                <small class="text-danger">El apellido es obligatorio.</small>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="c_email" [(ngModel)]="clienteForm.c_email" required
+                    pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}" #email="ngModel" placeholder="ejemplo@correo.com">
+
+                @if (email.invalid && (email.dirty || email.touched)) {
+                <small class="text-danger">
+                    Por favor, introduce un correo válido que incluya su extensión (ejemplo: .com, .net).
+                </small>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono / Celular:</label>
+                <input type="text" id="telefono" name="c_telefono" [(ngModel)]="clienteForm.c_telefono" required
+                    pattern="^[0-9]+$" minlength="10" maxlength="15" #telefono="ngModel" placeholder="Ej. 0999999999">
+                @if (telefono.invalid && (telefono.dirty || telefono.touched)) {
+                <small class="text-danger">El teléfono debe contener solo números (entre 10 y 15 dígitos).</small>
+                }
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-success" [disabled]="!formCliente.form.valid">
+                    {{ editando ? 'Actualizar Cliente' : 'Guardar Cliente' }}
+                </button>
+                <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    }
+
+    <!--Barra de herramientas-->
+
+    <div class="table-tools">
+        <div class="tool-show">
+            <label>Mostrar </label>
+            <select [(ngModel)]="registrosPorPagina" (change)="resetearPaginacion()">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+            </select>
+            <label> registros</label>
+        </div>
+
+        <div class="tool-search">
+            <input type="text" [(ngModel)]="textoBusqueda" (input)="resetearPaginacion()"
+                placeholder="🔍 Buscar por nombre o correo...">
+        </div>
+    </div>
+
+    <!--Tabla dinámica-->
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (cliente of clientesPaginados; track cliente.cliente_id) {
+                <tr>
+                    <td><strong>{{ cliente.cliente_id }}</strong></td>
+                    <td>{{ cliente.c_nombre }} {{ cliente.c_apellido }}</td>
+                    <td>{{ cliente.c_email }}</td>
+                    <td class="text-muted">{{ cliente.c_telefono || 'No registrado' }}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-action btn-edit" (click)="abrirFormularioEditar(cliente)"
+                                title="Editar">✏️</button>
+                            <button class="btn-action btn-delete" (click)="eliminar(cliente.cliente_id)"
+                                title="Desactivar">🗑️</button>
+                        </div>
+                    </td>
+                </tr>
+                } @empty {
+                <tr>
+                    <td colspan="5" class="text-center">No se encontraron clientes activos que coincidan con la
+                        búsqueda.</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination-controls">
+            <span>Mostrando página {{ paginaActual }} de {{ totalPaginas }}</span>
+            <div class="pagination-buttons">
+                <button class="btn-page" (click)="paginaAnterior()" [disabled]="paginaActual === 1">◀ Anterior</button>
+                <button class="btn-page" (click)="paginaSiguiente()"
+                    [disabled]="paginaActual === totalPaginas">Siguiente ▶</button>
+            </div>
+        </div>
+    </div>
+</div>

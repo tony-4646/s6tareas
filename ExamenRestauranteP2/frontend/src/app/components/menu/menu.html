@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="header-actions">
+    <h2>🍔 Control del Catálogo de Menús</h2>
+    <button class="btn btn-primary" (click)="abrirFormularioNuevo()">+ Agregar Nuevo Platillo</button>
+  </div>
+
+  <hr />
+
+  <!--Formulario-->
+  @if (mostrarFormulario) {
+    <div class="card-formulario">
+      <h3>{{ editando ? '📝 Editar Datos del Platillo' : '✨ Registrar Nuevo Platillo' }}</h3>
+      <form (ngSubmit)="guardar($event)" #formMenu="ngForm">
+        <div class="form-group">
+          <label for="nombre">Nombre del Plato:</label>
+          <input type="text" id="nombre" name="m_nombre" [(ngModel)]="menuForm.m_nombre" required placeholder="Ej. Hamburguesa doble con queso">
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción / Ingredientes:</label>
+          <textarea id="descripcion" name="m_descripcion" [(ngModel)]="menuForm.m_descripcion" required placeholder="Detalla los componentes del platillo..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="precio">Precio Unitario ($):</label>
+          <input type="number" id="precio" name="m_precio" [(ngModel)]="menuForm.m_precio" required step="0.01" min="0.01">
+        </div>
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-success" [disabled]="!formMenu.form.valid">{{ editando ? 'Actualizar Cambios' : 'Guardar Platillo' }}</button>
+          <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  }
+
+  <!--Barra de herramientas-->
+  <div class="table-tools">
+    <div class="tool-show">
+      <label>Mostrar </label>
+      <select [(ngModel)]="registrosPorPagina" (change)="resetearPaginacion()">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="20">20</option>
+      </select>
+      <label> registros</label>
+    </div>
+
+    <div class="tool-search">
+      <input 
+        type="text" 
+        [(ngModel)]="textoBusqueda" 
+        (input)="resetearPaginacion()" 
+        placeholder="🔍 Buscar por nombre o descripción...">
+    </div>
+  </div>
+
+  <!--Tabla dinamica-->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Plato</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- CAMBIO AQUÍ: Ahora recorremos la lista recortada y filtrada -->
+        @for (menu of menusPaginados; track menu.menu_id) {
+          <tr>
+            <td><strong>{{ menu.menu_id }}</strong></td>
+            <td>{{ menu.m_nombre }}</td>
+            <td class="text-muted">{{ menu.m_descripcion }}</td>
+            <td>${{ menu.m_precio | number:'1.2-2' }}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-action btn-edit" (click)="abrirFormularioEditar(menu)" title="Editar">✏️</button>
+                <button class="btn-action btn-delete" (click)="eliminar(menu.menu_id)" title="Desactivar">🗑️</button>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="text-center">No se encontraron platillos que coincidan con la búsqueda.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="pagination-controls">
+      <span>Mostrando página {{ paginaActual }} de {{ totalPaginas }}</span>
+      <div class="pagination-buttons">
+        <button class="btn-page" (click)="paginaAnterior()" [disabled]="paginaActual === 1">◀ Anterior</button>
+        <button class="btn-page" (click)="paginaSiguiente()" [disabled]="paginaActual === totalPaginas">Siguiente ▶</button>
+      </div>
+    </div>
+  </div>
+</div>

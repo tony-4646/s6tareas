@@ -1,0 +1,22 @@
+<nav class="main-navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <span>Sistema de órdenes restaurante</span>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/ordenes" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📋</span> Gestión de Órdenes
+      </a>
+      <a routerLink="/menus" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">🍔</span> Catálogo de Menús
+      </a>
+      <a routerLink="/clientes" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">👥</span> Control de Clientes
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
