@@ -1,0 +1,28 @@
+@import '../clientes/clientes.css';
+
+.badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge.en_estacion {
+  background-color: #e8f8f5;
+  color: #117a65;
+}
+
+.badge.prestada {
+  background-color: #ebf5fb;
+  color: #2471a3;
+}
+
+.badge.en_mantenimiento {
+  background-color: #fef9e7;
+  color: #b7950b;
+}
+
+select.swal2-input {
+  background-color: white;
+}

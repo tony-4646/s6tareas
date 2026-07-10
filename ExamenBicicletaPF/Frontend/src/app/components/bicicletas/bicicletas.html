@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="header-section">
+    <h1>Inventario de Bicicletas</h1>
+    <button class="btn-primary" (click)="abrirModalCrear()">
+      + Añadir Bicicleta
+    </button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" [formControl]="buscador" class="search-input"
+      placeholder="Buscar por código, tipo, estación o estado..." />
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Tipo</th>
+          <th>Ubicación Actual</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (bici of bicicletasPaginadas; track bici.bicicleta_id) {
+        <tr>
+          <td><strong>{{ bici.b_codigo }}</strong></td>
+          <td>
+            @if (bici.b_tipo === 'un_asiento') { Un Asiento }
+            @else if (bici.b_tipo === 'dos_asientos') { Dos Asientos }
+            @else if (bici.b_tipo === 'off_road') { Montaña (Off-Road) }
+            @else if (bici.b_tipo === 'electrica') { Eléctrica }
+          </td>
+          <td>{{ bici.estacion_nombre || '--- (En Viaje) ---' }}</td>
+          <td>
+            <span class="badge" [class]="bici.b_estado">
+              @if (bici.b_estado === 'en_estacion') { En Estación }
+              @else if (bici.b_estado === 'prestada') { Prestada }
+              @else if (bici.b_estado === 'en_mantenimiento') { Mantenimiento }
+            </span>
+          </td>
+          <td class="action-buttons">
+            <button class="btn-delete" (click)="eliminarBicicleta(bici.bicicleta_id)">
+              Dar de Baja
+            </button>
+          </td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="5" class="empty-state">
+            No hay bicicletas operativas registradas o que coincidan con los filtros.
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <button class="btn-page" [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)">
+      Anterior
+    </button>
+
+    <span class="page-info">
+      Página {{ paginaActual }} de {{ totalPaginas }}
+    </span>
+
+    <button class="btn-page" [disabled]="paginaActual === totalPaginas" (click)="cambiarPagina(paginaActual + 1)">
+      Siguiente
+    </button>
+  </div>
+
+</div>

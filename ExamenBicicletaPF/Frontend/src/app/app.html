@@ -1,0 +1,33 @@
+<div class="app-container">
+  
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h2>Bici Xpress</h2>
+    </div>
+    
+    <nav class="sidebar-menu">
+      <a routerLink="/alquileres" routerLinkActive="active" class="menu-item">
+        <span class="menu-icon">📊</span> Panel Alquileres
+      </a>
+      <a routerLink="/estaciones" routerLinkActive="active" class="menu-item">
+        <span class="menu-icon">📍</span> Estaciones
+      </a>
+      <a routerLink="/bicicletas" routerLinkActive="active" class="menu-item">
+        <span class="menu-icon">🚲</span> Inventario Bici
+      </a>
+      <a routerLink="/clientes" routerLinkActive="active" class="menu-item">
+        <span class="menu-icon">👥</span> Gestión Clientes
+      </a>
+    </nav>
+    
+  </aside>
+
+  <main class="main-content">
+
+    
+    <section class="content-wrapper">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+
+</div>

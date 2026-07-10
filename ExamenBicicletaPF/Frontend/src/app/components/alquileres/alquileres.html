@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="header-section">
+    <h1>Panel de Alquileres</h1>
+    <button class="btn-primary" (click)="abrirModalAlquilar()">
+      + Nuevo Alquiler
+    </button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" [formControl]="buscador" class="search-input"
+      placeholder="Buscar por nombre de cliente o código de bici..." />
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Bicicleta</th>
+          <th>Fecha / Hora Salida</th>
+          <th>Fecha / Hora Entrada</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (alquiler of alquileresPaginados; track alquiler.alquiler_id) {
+        <tr>
+          <td><strong>{{ alquiler.cliente_nombre }}</strong></td>
+          <td><span class="code-tag">{{ alquiler.bicicleta_codigo }}</span></td>
+          <td>{{ formatearFecha(alquiler.a_inicio) }}</td>
+          <td>{{ formatearFecha(alquiler.a_fin) }}</td>
+          <td>
+            <span class="badge" [class]="alquiler.a_fin ? 'cerrado' : 'activo'">
+              @if (alquiler.a_fin) { Finalizado }
+              @else { En Curso }
+            </span>
+          </td>
+          <td class="action-buttons">
+            @if (!alquiler.a_fin) {
+            <button class="btn-return" (click)="abrirModalDevolucion(alquiler.alquiler_id)">
+              Recibir Bici
+            </button>
+            } @else {
+            <span class="text-muted">Sin acciones</span>
+            }
+          </td>
+        </tr>
+        } @empty {
+        <tr>
+          <td colspan="6" class="empty-state">
+            No se registran transacciones de alquiler en este periodo.
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <button class="btn-page" [disabled]="paginaActual === 1" (click)="cambiarPagina(paginaActual - 1)">
+      Anterior
+    </button>
+
+    <span class="page-info">
+      Página {{ paginaActual }} de {{ totalPaginas }}
+    </span>
+
+    <button class="btn-page" [disabled]="paginaActual === totalPaginas" (click)="cambiarPagina(paginaActual + 1)">
+      Siguiente
+    </button>
+  </div>
+
+</div>
