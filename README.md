@@ -15,3 +15,5 @@ INSERT INTO Usuarios (Nombre_Usuario, Contrasena) VALUES ('usuario', CONVERT(VAR
  - Añadido deber semana 7, (21-06-2026): Importante leer: Asegurate de ajustar app.module.ts del backend a tu base de datos y gestor
  - Añadido documento del PI, (21-06-2026)
  - **Añadido examen parcial 2, deber S8 (03-07-2026): Importante leer:** Hecho con Node y Angular, usa la base de datos restaurante.sql alojada en la carpeta, luego instala los componentes en el backend (npm init -y|npm install express mysql2 cors|npm install --save-dev nodemon) y en el frontend usar (npm install -g @angular/cli), de este modo el proyecto funcionará, verifica en el archivo db del backend que esté acorde a tu base de datos.
+
+ - **Añadido examen final (10-07-2026): Importante leer:** Hecho con Node y Angular, usa la base de datos bicicleta.sql alojada en la carpeta, luego instala los componentes en el backend (npm init -y|npm install express mysql2 cors|npm install --save-dev nodemon) y en el frontend usar (npm install -g @angular/cli) y (npm install sweetalert2), de este modo el proyecto funcionará, verifica en el archivo db del backend que esté acorde a tu base de datos.
